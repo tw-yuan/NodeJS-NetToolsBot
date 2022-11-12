@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-nettools",
+  "version": "1.0.0",
+  "description": "Use NodeJS to bulid network tools.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuan2005/NodeJS-NetTools.git"
+  },
+  "keywords": [
+    "network"
+  ],
+  "author": "YuanYuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuan2005/NodeJS-NetTools/issues"
+  },
+  "homepage": "https://github.com/yuan2005/NodeJS-NetTools#readme",
+  "dependencies": {
+    "nodejs-traceroute": "^1.2.1"
+  }
+}
