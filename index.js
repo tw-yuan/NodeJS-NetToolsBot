@@ -1,28 +1,45 @@
-const express = require('express');
-const app = express();
-const ping = require('ping');
+const fs = require("fs");
+const { token } = require("./config.json");
+const { nodename } = require("./config.json");
+const { Client, Intents, Permissions, MessageEmbed } = require('discord.js');
+const client = new Client({ intents: new Intents(32767) });
 var Ping = require('ping-lite');
-const dns = require('dns');
+var validateIP = require('validate-ip-node');
 
-app.get('/ping', function (req, res) {
-    var host = req.query.host;
 
-    var ping = new Ping(host);
-
-    ping.send(function (err, ms) {
-        console.log(`DST: ${host} | Time: ${ms}ms`);
-        res.json({ DST: host , TIME: ms });
-    });    
+client.on('ready', () => { //當機器人啟動完成
+	console.log(`Logged in as ${client.user.tag}!`);
+	client.user.setActivity("Game");
+	client.user.setActivity("Made By YuanYuan#5067", {
+		type: "PLAYING"
+	});
 });
 
-app.listen(26001, function () {
-    console.log('Test App is running on 26001!');
-});
+
+client.on('messageCreate', message => {
+	if (message.content.startsWith("=ping ")) {
+
+		var nocmd = message.content.replace("=ping ", '');
+		host = nocmd.replace(/\  /g, " ");
+		if (validateIP(host) == true) {
+			
+			var ping = new Ping(host);
+
+			ping.send(function (err, ms) {
+				message.channel.send(`[${nodename}] - ${ms}ms`);
+			});
+		}
+		return;
+
+	}
+})
+
+client.login(token);
 //防崩潰
 process.on('uncaughtException', error => {
-    console.log(error)
+	console.log(error)
 });
 
 process.on('unhandledRejection', error => {
-    console.log(error)
+	console.log(error)
 })

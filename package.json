@@ -1,29 +1,17 @@
 {
-  "name": "nodejs-nettools",
+  "name": "test",
   "version": "1.0.0",
-  "description": "Use NodeJS to bulid network tools.",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yuan2005/NodeJS-NetTools.git"
-  },
-  "keywords": [
-    "network"
-  ],
-  "author": "YuanYuan",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yuan2005/NodeJS-NetTools/issues"
-  },
-  "homepage": "https://github.com/yuan2005/NodeJS-NetTools#readme",
   "dependencies": {
-    "child_process": "^1.0.2",
-    "express": "^4.18.2",
-    "nodejs-traceroute": "^1.2.1",
-    "ping": "^0.4.2",
-    "ping-lite": "^2.0.2"
+    "discord.js": "^13.6.0",
+    "ping-lite": "^2.0.2",
+    "request": "^2.88.2",
+    "validate-ip-node": "^1.0.8"
   }
 }
