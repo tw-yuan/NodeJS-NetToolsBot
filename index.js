@@ -12,7 +12,7 @@ app.get('/ping', function (req, res) {
     ping.send(function (err, ms) {
         console.log(`DST: ${host} | Time: ${ms}ms`);
         res.send(`${ms}`);
-        res.end(JSON.stringify({ DST: host , TIME: ms }));
+        res.json({ DST: host , TIME: ms });
     });    
 });
 
