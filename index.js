@@ -1,26 +1,22 @@
-const fs = require("fs");
-const ms = require('ms');
-const schedule = require('node-schedule');
-const request = require("request");
-const { exec } = require("child_process");
 const express = require('express');
 const app = express();
 const ping = require('ping');
+var Ping = require('ping-lite');
 
 app.get('/ping', function (req, res) {
     var host = req.query.host;
 
-    res.send("Not Auth");
+    var ping = new Ping(host);
 
-    ping.promise.probe(host)
-        .then(function (res) {
-            console.log(res);
-            res.send(res);
-        });
+    ping.send(function (err, ms) {
+        console.log(ping._host + ' responded in ' + ms + 'ms.');
+    });
+
+    res.send(host);
 });
 
 app.listen(26001, function () {
-    console.log('FAD後端已啟用於26001端口!');
+    console.log('Test App is running on 26001!');
 });
 //防崩潰
 process.on('uncaughtException', error => {
