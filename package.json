@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/yuan2005/NodeJS-NetTools#readme",
   "dependencies": {
-    "dns": "^0.2.2",
-    "nodejs-traceroute": "^1.2.1"
+    "child_process": "^1.0.2",
+    "nodejs-traceroute": "^1.2.1",
+    "ping": "^0.4.2"
   }
 }

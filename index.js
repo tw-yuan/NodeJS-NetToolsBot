@@ -1,23 +1,10 @@
-const Traceroute = require('nodejs-traceroute');
-const dns = require('dns');
+var ping = require('ping');
 
-try {
-    const tracer = new Traceroute();
-    tracer
-        .on('pid', (pid) => {
-            console.log(`pid: ${pid}`);
-        })
-        .on('destination', (destination) => {
-            console.log(`destination: ${destination}`);
-        })
-        .on('hop', (hop) => {
-            console.log(`hop: ${JSON.stringify(hop)}`);
-        })
-        .on('close', (code) => {
-            console.log(`close: code ${code}`);
+var hosts = ['192.168.1.1', 'google.com', 'yahoo.com'];
+
+hosts.forEach(function (host) {
+    ping.promise.probe(host)
+        .then(function (res) {
+            console.log(res);
         });
- 
-    tracer.trace('172.104.100.169');
-} catch (ex) {
-    console.log(ex);
-}
+});
