@@ -10,9 +10,8 @@ app.get('/ping', function (req, res) {
 
     ping.send(function (err, ms) {
         console.log(ms);
-    });
-
-    res.send(host);
+        res.send(ms);
+    });    
 });
 
 app.listen(26001, function () {
