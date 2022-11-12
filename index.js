@@ -1,5 +1,6 @@
 const Traceroute = require('nodejs-traceroute');
- 
+const dns = require('dns');
+
 try {
     const tracer = new Traceroute();
     tracer
@@ -16,7 +17,7 @@ try {
             console.log(`close: code ${code}`);
         });
  
-    tracer.trace('8.8.8.8');
+    tracer.trace('172.104.100.169');
 } catch (ex) {
     console.log(ex);
 }
