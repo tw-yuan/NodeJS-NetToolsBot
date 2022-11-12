@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const ping = require('ping');
 var Ping = require('ping-lite');
+const dns = require('dns');
 
 app.get('/ping', function (req, res) {
     var host = req.query.host;
