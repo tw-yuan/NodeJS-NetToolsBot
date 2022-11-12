@@ -9,7 +9,7 @@ app.get('/ping', function (req, res) {
     var ping = new Ping(host);
 
     ping.send(function (err, ms) {
-        console.log(ping._host + ' responded in ' + ms + 'ms.');
+        console.log(ms);
     });
 
     res.send(host);
