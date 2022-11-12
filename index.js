@@ -10,7 +10,7 @@ app.get('/ping', function (req, res) {
     var ping = new Ping(host);
 
     ping.send(function (err, ms) {
-        console.log(`DST: ${host} Time: ${ms}ms`);
+        console.log(`DST: ${host} | Time: ${ms}ms`);
         res.send(`${ms}`);
     });    
 });
